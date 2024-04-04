@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Http;
 class Course extends Component
 {
 
-    public $count = 1;
-    public $courses = [];
+    public $courses = '';
 
     public function mount()
     {
-        $this->count = 'Получение данных';
         $this->updateCourse();
     }
 
@@ -31,15 +29,6 @@ class Course extends Component
         $this->courses = $response->json()['data']['USDKZT'];
     }
  
-    public function increment()
-    {
-        $this->count++;
-    }
- 
-    public function decrement()
-    {
-        $this->count--;
-    }
 
     public function render()
     {
